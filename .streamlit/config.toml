@@ -1,0 +1,7 @@
+[theme]
+primaryColor = "#a855f7"              # Purple-500 - vibrant, code-like accent
+backgroundColor = "#0d1117"           # GitHub-like dark background
+secondaryBackgroundColor = "#161b22"  # Slightly lighter - cards and sections
+textColor = "#f0f6fc"                 # Light blue-white - easy on eyes
+linkColor = "#58a6ff"                 # GitHub-like blue - familiar developer color
+borderColor = "#30363d"               # Dark gray borders
