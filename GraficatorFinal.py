@@ -155,10 +155,6 @@ def mostrar_gauges(df):
     ))
     velociix.plotly_chart(figura, use_container_width=True)
 
-def mostrar_tabla(df):
-
-    tablatodo_placeholder.dataframe(df)
-
 def actualizar_metricas(df):
     global altitud_maxima
     ultimo = df.iloc[-1]
@@ -227,15 +223,6 @@ def mostrar_graficas(df, selected_charts):
         )
     else:
         chart_etapa_altitud.empty()
-
-    if "Ubicación GPS" in selected_charts:
-        mapa = df[["Latitud", "Longitud"]].rename(
-            columns={"Latitud": "lat", "Longitud": "lon"}
-        )
-        chart_gps.map(mapa, latitude="lat", longitude="lon", size=20)
-    else:
-        chart_gps.empty()
-
     if "Velocidades" in selected_charts:
         velocidades = px.line(
             df, x="Millis", y=["VelocidadX", "VelocidadY"],
@@ -244,6 +231,19 @@ def mostrar_graficas(df, selected_charts):
         chart_velocidades.plotly_chart(velocidades, use_container_width=True)
     else:
         chart_velocidades.empty()
+    if "Ubicación GPS" in selected_charts:
+        mapa = df[["Latitud", "Longitud"]].rename(
+            columns={"Latitud": "lat", "Longitud": "lon"}
+        )
+        chart_gps.map(mapa, latitude="lat", longitude="lon", size=20)
+    else:
+        chart_gps.empty()
+
+def mostrar_tabla(df):
+
+    tablatodo_placeholder.dataframe(df)
+
+
 
 if  start_button:
     try:
