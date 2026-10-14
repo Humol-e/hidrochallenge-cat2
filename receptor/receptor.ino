@@ -88,7 +88,7 @@ void loop() {
   // Contar pérdidas por hueco de tiempo
   uint32_t now = millis();
   if (lastRxMillis != 0 && (now - lastRxMillis) > GAP_LIMIT_MS) {
-    uint32_t gap = (now - lastRxMillis) / 4000;
+    uint32_t gap = (now - lastRxMillis) / 1000;
     if (gap > 1) perdidos += gap - 1;
   }
   lastRxMillis = now;
